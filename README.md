@@ -1,3 +1,3 @@
 # Honboldir
 
-Learning about procedural generation by building a rougelike.
+Learning about [procedural generation](https://en.wikipedia.org/wiki/Procedural_generation) by building a rougelike.
