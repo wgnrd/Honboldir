@@ -1,4 +1,4 @@
-import { getRandomNumber } from './utils.js';
+import { getRandomNumber, changeMapTile } from './utils.js';
 import Room from './room.js';
 
 const map_width = 81;
@@ -56,32 +56,22 @@ let generateRooms = () => {
 
   for (let i = r1.positionX; i < r1.positionX + r1.width; i++) {
     // upper wall
-    document.getElementsByClassName(
-      `mapTile x${i} y${r1.positionY}`
-    )[0].innerHTML = '#';
+    changeMapTile(i, r1.positionY, '#');
 
     // lower wall
-    document.getElementsByClassName(
-      `mapTile x${i} y${r1.positionY + r1.height - 1} `
-    )[0].innerHTML = '#';
+    changeMapTile(i, r1.positionY + r1.height - 1, '#');
   }
 
   for (let i = r1.positionY; i < r1.positionY + r1.height; i++) {
     // left wall
-    document.getElementsByClassName(
-      `mapTile x${r1.positionX} y${i}`
-    )[0].innerHTML = '#';
+    changeMapTile(r1.positionX, i, '#');
 
     // right wall
-    document.getElementsByClassName(
-      `mapTile x${r1.positionX + r1.width - 1} y${i}`
-    )[0].innerHTML = '#';
+    changeMapTile(r1.positionX + r1.width - 1, i, '#');
   }
   generateDoors(r1);
 };
 
 generateEmptyMap();
 generatePlayer();
-generateRooms();
-generateRooms();
 generateRooms();
