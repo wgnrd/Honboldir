@@ -33,10 +33,7 @@ let generateDoors = (room) => {
     let positionDoor = getRandomNumber(1, room.width - 2);
     // top side
     if (side === 0) {
-      // TODO: add utils function to easier replace the innerHTML of a known tile
-      document.getElementsByClassName(
-        `mapTile x${room.positionX + positionDoor} y${room.positionY}`
-      )[0].innerHTML = 'Π';
+      changeMapTile(room.positionX + positionDoor, room.positionY, 'Π');
     }
   }
 };
