@@ -25,17 +25,30 @@ let generatePlayer = () => {
 let generateDoors = (room) => {
   // TODO: number of doors need to be random
   let numberOfDoors = 1;
-  // TODO: side need to be random
-  let side = 0;
+  // decide on which side the door will spawn
+  let side = getRandomNumber(0, 3);
 
-  // top or bottom side
-  if (side % 2 === 0) {
-    let positionDoor = getRandomNumber(1, room.width - 2);
-    // top side
-    if (side === 0) {
-      changeMapTile(room.positionX + positionDoor, room.positionY, 'Π');
-    }
+  let doorPositionX = 0;
+  let doorPositionY = 0;
+  switch (side) {
+    case 0: // top side
+      doorPositionX = getRandomNumber(1, room.width - 2) + room.positionX;
+      doorPositionY = room.positionY;
+      break;
+    case 1: // right side
+      doorPositionX = room.positionX + room.width - 1;
+      doorPositionY = getRandomNumber(1, room.height - 2) + room.positionY;
+      break;
+    case 2: // left side
+      doorPositionX = room.positionX;
+      doorPositionY = getRandomNumber(1, room.height - 2) + room.positionY;
+      break;
+    case 3: // bottom side
+      doorPositionX = getRandomNumber(1, room.width - 2) + room.positionX;
+      doorPositionY = room.positionY + room.height - 1;
+      break;
   }
+  changeMapTile(doorPositionX, doorPositionY, 'Π');
 };
 
 let generateRooms = () => {
