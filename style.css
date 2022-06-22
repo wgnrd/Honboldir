@@ -1,0 +1,17 @@
+p {
+  margin: 0;
+}
+
+.map {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.mapTile {
+  white-space: nowrap;
+  display: inline-block;
+}
